@@ -2,12 +2,12 @@ var width = 0
 var height = 0
 
 //Ajusta tamanho palco baseado na largura e altura dá janela.
-function adjustStageSize() {
+function adjustScreenGame() {
     width = window.innerWidth
     height = window.innerHeight
 
 }
-adjustStageSize()
+adjustScreenGame()
 
 function positionRandom() {
 

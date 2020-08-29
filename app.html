@@ -9,7 +9,16 @@
 </head>
 
 
-<body onresize="adjustStageSize()">
+<body onresize="adjustScreenGame()">
+
+    <div class="panel">
+        <div class="lives">
+            <img src="imagens/heart_empty.png" />
+            <img src="imagens/heart_empty.png" />
+            <img src="imagens/heart_full.png" />
+        </div>
+        <div class="stopwatch">Tempo restante: ?</div>
+    </div>
 
     <script>
         //Faz a chamada da função no intervalo de 1s.
