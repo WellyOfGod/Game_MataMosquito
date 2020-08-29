@@ -26,8 +26,8 @@ function positionRandom() {
     //Passando o atribuido src
     fly.src = 'imagens/fly.png'
 
-    //Passando a classe css ao elemento
-    fly.className = 'fly1'
+    //Setando a classe randômica ao elemento.
+    fly.className = randomSize()
 
     //Vinculando o elemento na janela através das coordenadas dinamicas.
     fly.style.left = positionX + 'px'
@@ -36,4 +36,18 @@ function positionRandom() {
 
     //Adicionando um filho ao body
     document.body.appendChild(fly)
+}
+
+//Criando tamanhos randômicos
+function randomSize() {
+    var classe = Math.floor(Math.random() * 3)
+
+    switch (classe) {
+        case 0:
+            return 'fly1'
+        case 1:
+            return 'fly2'
+        case 2:
+            return 'fly3'
+    }
 }
