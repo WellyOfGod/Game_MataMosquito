@@ -26,8 +26,8 @@ function positionRandom() {
     //Passando o atribuido src
     fly.src = 'imagens/fly.png'
 
-    //Setando a classe randômica ao elemento.
-    fly.className = randomSize()
+    //Setando a classe e lado randômica ao elemento.
+    fly.className = randomSize() + ' ' + randomSide()
 
     //Vinculando o elemento na janela através das coordenadas dinamicas.
     fly.style.left = positionX + 'px'
@@ -49,5 +49,17 @@ function randomSize() {
             return 'fly2'
         case 2:
             return 'fly3'
+    }
+}
+
+//Lado A e B na exibição do elemento
+function randomSide() {
+    var side = Math.floor(Math.random() * 2)
+
+    switch (side) {
+        case 0:
+            return 'ladoA'
+        case 1:
+            return 'ladoB'
     }
 }
