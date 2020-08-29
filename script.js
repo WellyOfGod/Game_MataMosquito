@@ -10,6 +10,12 @@ function adjustStageSize() {
 adjustStageSize()
 
 function positionRandom() {
+
+    //remove o mosquito(fly) anterior, caso exista.
+    if (document.getElementById('fly')) {
+        document.getElementById('fly').remove()
+    }
+
     //Posição x e y gerada randomicamente, cujo limitante é adjustStageSize.
     var positionX = Math.floor(Math.random() * width) - 90
     var positionY = Math.floor(Math.random() * height) - 90
@@ -33,6 +39,7 @@ function positionRandom() {
     fly.style.left = positionX + 'px'
     fly.style.top = positionY + 'px'
     fly.style.position = 'absolute'
+    fly.id = 'fly'
 
     //Adicionando um filho ao body
     document.body.appendChild(fly)
