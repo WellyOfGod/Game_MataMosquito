@@ -1,6 +1,7 @@
 var width = 0
 var height = 0
 var life = 1
+var time = 10
 
 //Ajusta tamanho palco baseado na largura e altura dá janela.
 function adjustScreenGame() {
@@ -10,6 +11,24 @@ function adjustScreenGame() {
 }
 adjustScreenGame()
 
+//Cronômetro
+var stopwatch = setInterval(function() {
+
+    time -= 1
+
+    if (time < 0) {
+
+        //elimina a função da memória da aplicação.
+        clearInterval(stopwatch)
+
+        //Para a criação do elemento fly.
+        clearInterval(createFly)
+        alert('vitória')
+    } else {
+        document.getElementById('stopwatch').innerHTML = time
+    }
+}, 1000)
+
 function positionRandom() {
 
     //remove o mosquito(fly) anterior, caso exista.
@@ -18,6 +37,8 @@ function positionRandom() {
 
         //Estrutura de controle dos pontos de vida.
         if (life > 5) {
+            /*Recupera o objeto window, localiza o atributo href,
+            e redireciona para a tela de Game Over */
             window.location.href = 'game_over.html'
         } else {
             //recupera o elemento pelo id alterando a imagem de exibição.
