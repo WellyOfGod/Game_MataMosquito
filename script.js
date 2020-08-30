@@ -18,7 +18,7 @@ function positionRandom() {
 
         //Estrutura de controle dos pontos de vida.
         if (life > 5) {
-            alert('Game Over')
+            window.location.href = 'game_over.html'
         } else {
             //recupera o elemento pelo id alterando a imagem de exibição.
             document.getElementById('life' + life).src = "imagens/life_empty.png"
