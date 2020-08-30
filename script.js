@@ -1,32 +1,41 @@
 var width = 0
 var height = 0
 var life = 1
-var time = 10
+var time = 15
 
 //Ajusta tamanho palco baseado na largura e altura dá janela.
 function adjustScreenGame() {
     width = window.innerWidth
     height = window.innerHeight
-
 }
 adjustScreenGame()
 
+//Evento de click botão Iniciar Jogo
+function StartGame() {
+    var level = document.getElementById('level').value
+
+    if (level == '') {
+        alert('Selecione um nível para iniciar o jogo')
+        return false
+    }
+}
+
 //Cronômetro
-var stopwatch = setInterval(function() {
+var timer = setInterval(function() {
     time -= 1
     if (time < 0) {
 
         //elimina a função da memória da aplicação.
-        clearInterval(stopwatch)
+        clearInterval(timer)
 
         //Para a criação do elemento fly.
-        clearInterval(createFly)
+        clearInterval(newFly)
 
         /*Recupera o objeto window, localiza o atributo href,
         redirecionando para a tela de Victory */
         window.location.href = 'victory.html'
     } else {
-        document.getElementById('stopwatch').innerHTML = time
+        document.getElementById('timer').innerHTML = time
     }
 }, 1000)
 

@@ -18,13 +18,14 @@
             <img id="life4" src="imagens/life_full.png" />
             <img id="life5" src="imagens/life_full.png" />
         </div>
-        <div class="stopwatch">Tempo restante: <span id="stopwatch"></span></div>
+        <div class="stopwatch">Tempo restante: <span id="timer"></span></div>
     </div>
 
     <script>
-        document.getElementById('stopwatch').innerHTML = time
-            //Faz a chamada da função no intervalo de 2s.
-        var createFly = setInterval(function() {
+        document.getElementById('timer').innerHTML = time
+
+        //Faz a chamada da função no intervalo de 2s.
+        var newFly = setInterval(function() {
             positionRandom()
         }, 2000)
     </script>
