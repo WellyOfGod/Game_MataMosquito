@@ -13,9 +13,7 @@ adjustScreenGame()
 
 //Cronômetro
 var stopwatch = setInterval(function() {
-
     time -= 1
-
     if (time < 0) {
 
         //elimina a função da memória da aplicação.
@@ -23,14 +21,16 @@ var stopwatch = setInterval(function() {
 
         //Para a criação do elemento fly.
         clearInterval(createFly)
-        alert('vitória')
+
+        /*Recupera o objeto window, localiza o atributo href,
+        redirecionando para a tela de Victory */
+        window.location.href = 'victory.html'
     } else {
         document.getElementById('stopwatch').innerHTML = time
     }
 }, 1000)
 
 function positionRandom() {
-
     //remove o mosquito(fly) anterior, caso exista.
     if (document.getElementById('fly')) {
         document.getElementById('fly').remove()
@@ -38,7 +38,7 @@ function positionRandom() {
         //Estrutura de controle dos pontos de vida.
         if (life > 5) {
             /*Recupera o objeto window, localiza o atributo href,
-            e redireciona para a tela de Game Over */
+            redirecionando para a tela de Game Over */
             window.location.href = 'game_over.html'
         } else {
             //recupera o elemento pelo id alterando a imagem de exibição.
