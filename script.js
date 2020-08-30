@@ -1,5 +1,6 @@
 var width = 0
 var height = 0
+var life = 1
 
 //Ajusta tamanho palco baseado na largura e altura dá janela.
 function adjustScreenGame() {
@@ -14,6 +15,15 @@ function positionRandom() {
     //remove o mosquito(fly) anterior, caso exista.
     if (document.getElementById('fly')) {
         document.getElementById('fly').remove()
+
+        //Estrutura de controle dos pontos de vida.
+        if (life > 5) {
+            alert('Game Over')
+        } else {
+            //recupera o elemento pelo id alterando a imagem de exibição.
+            document.getElementById('life' + life).src = "imagens/life_empty.png"
+            life++
+        }
     }
 
     //Posição x e y gerada randomicamente, cujo limitante é adjustStageSize.
@@ -40,6 +50,11 @@ function positionRandom() {
     fly.style.top = positionY + 'px'
     fly.style.position = 'absolute'
     fly.id = 'fly'
+
+    //Evento onclick afim de remover o elemento.
+    fly.onclick = function() {
+        this.remove()
+    }
 
     //Adicionando um filho ao body
     document.body.appendChild(fly)
