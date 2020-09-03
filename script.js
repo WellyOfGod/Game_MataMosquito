@@ -3,6 +3,20 @@ var height = 0
 var life = 1
 var time = 15
 
+var newFlyTime = 1500
+var level = window.location.search
+level = level.replace('?', '')
+
+//Aplicando nível de dificuldade selecionado.
+if (level == 'normal') {
+    var newFlyTime = 1500
+} else if (level == 'dificil') {
+    var newFlyTime = 1000
+} else if (level == 'chucknorris') {
+    var newFlyTime = 750
+}
+
+
 //Ajusta tamanho palco baseado na largura e altura dá janela.
 function adjustScreenGame() {
     width = window.innerWidth
@@ -18,6 +32,9 @@ function StartGame() {
         alert('Selecione um nível para iniciar o jogo')
         return false
     }
+
+    //Após selecionar o nivel e clicar em Jogar, retorna o nível como parametro da url.
+    window.location.href = 'app.html?' + level
 }
 
 //Cronômetro
